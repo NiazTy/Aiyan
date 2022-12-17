@@ -1,0 +1,19 @@
+{
+  "name": "aiyan",
+  "version": "1.0.0",
+  "description": "I'm here to help you",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Aiyan"
+  ],
+  "author": "kiyzan",
+  "license": "MIT",
+  "dependencies": {
+    "discord-gamecord": "^4.0.0",
+    "discord.js": "^14.7.1",
+    "discord.js-akinator": "^4.0.4"
+  }
+}
