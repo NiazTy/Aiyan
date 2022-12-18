@@ -8,7 +8,7 @@ module.exports = {
     usage: "[user]",
 
     execute(message, args) {
-        const usersA = message.mentions.users.first() || message.guild.members.cache.get(args[0]) || message.author
+        const users = message.mentions.users.first() || message.author
 
         const avatar = new EmbedBuilder()
             .setColor(0xffffff)
@@ -17,14 +17,14 @@ module.exports = {
                 iconURL: message.author.displayAvatarURL()
             })
             .setTitle(`📸 **Avatar**`)
-            .setImage(usersA.displayAvatarURL({ format: "png", size: 4096}))
+            .setImage(`https://cdn.discordapp.com/avatars/${users.id}/${users.avatar}.webp?size=4096`)
             .setTimestamp()
 
         const actionRow = new ActionRowBuilder()
 		.addComponents([
 			new ButtonBuilder()
 			.setLabel('LINK')
-			.setURL(usersA.displayAvatarURL({ dynamic: true, size: 4096, format: "png" }))
+			.setURL(`https://cdn.discordapp.com/avatars/${users.id}/${users.avatar}.png?size=4096`)
 			.setStyle(5)
 		])
 
