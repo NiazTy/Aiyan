@@ -2,14 +2,13 @@ const { ActionRowBuilder, ButtonBuilder, EmbedBuilder } = require("discord.js")
 
 module.exports = {
     name: "avatar",
-    description: "",
-    category: "miscellaneous",
-    aliases: "ava",
+    description: "Shows the avatar of the person you are talking about",
+    category: "🐛 Miscellaneous",
+    aliases: "",
     usage: "[user]",
 
     execute(message, args) {
         const usersA = message.mentions.users.first() || message.guild.members.cache.get(args[0]) || message.author
-        const imageURL = usersA.displayAvatarURL({ format: "png", size: 4096 })
 
         const avatar = new EmbedBuilder()
             .setColor(0xffffff)
@@ -25,7 +24,7 @@ module.exports = {
 		.addComponents([
 			new ButtonBuilder()
 			.setLabel('LINK')
-			.setURL(imageURL)
+			.setURL(usersA.displayAvatarURL({ dynamic: true, size: 4096, format: "png" }))
 			.setStyle(5)
 		])
 
